@@ -1,0 +1,99 @@
+import requests
+import json
+import datetime
+def DataRetrieval():
+    url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&interval=5min&apikey=KCF4YCRMF8CZ2BLL"
+    JSONReturn = requests.get(url).json()
+    #print(JSONReturn)
+    return JSONReturn
+
+def CurrentStockPrice():
+    exp= " "
+    for key in DataRetrieval()["Time Series (Daily)"]:
+       exp = key
+       break
+    print(DataRetrieval()["Time Series (Daily)"][exp]["4. close"])
+       
+           #[str(datetime.datetime.today()).split()[0]]["4. close:"]
+print(CurrentStockPrice())
+
+
+
+def TodayStockPrice():
+    exp= " "
+    for key in DataRetrieval()["Time Series (Daily)"]:
+       exp = key
+       break
+    print(DataRetrieval()["Time Series (Daily)"][exp]["2. high"])
+       
+           #[str(datetime.datetime.today()).split()[1]]["2. high:"]
+print(TodayStockPrice())
+
+
+
+def DiffStockPrice():
+    exp= " "
+    for key in DataRetrieval()["Time Series (Daily)"]:
+       exp = key
+       break
+    HighRate= DataRetrieval()["Time Series (Daily)"][exp]["2. high"])
+    LowRate = DataRetrieval()["Time Series (Daily)"][exp]["2. low"])
+    Diff =  HighRate-LowRate
+    return Diff
+    
+    
+       
+           #[str(datetime.datetime.today()).split()[1]]["2. high:"]
+           #[str(datetime.datetime.today()).split()[1]]["2. low:"]
+print(DiffStockPrice())
+
+
+
+def TimingofStock():
+    exp= " "
+    for key in DataRetrieval()["Time Series (Daily)"]:
+       exp = key
+       break
+    print(DataRetrieval()["Time Series (Daily)"][exp]["1. open"])
+       
+           #[str(datetime.datetime.today()).split()[2]]["1. open:"]
+print(TimingofStock())
+
+
+
+def TimingofStock():
+    exp= " "
+    for key in DataRetrieval()["Time Series (Daily)"]:
+       exp = key
+       break
+    print(DataRetrieval()["Time Series (Daily)"][exp]["4. close"])
+       
+           #[str(datetime.datetime.today()).split()[3]]["4. close:"]
+print(TimingofStock())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
